@@ -8,7 +8,16 @@ class User < ActiveRecord::Base
     has_secure_password
       validates :password, presence: true, length: { minimum: 6 }
       validates :birth_day, presence: true
+      validate :validates_birthday_compare_now
       validates :phone_number, presence: true, numericality: true, length: { minimum: 10 }
       enum sex: [ :Male, :Female]
       validates :sex, presence: true 
+  def validates_birthday_compare_now
+    if birth_day.present? && birth_day.to_date > Time.now.to_date
+      errors.add(:birth_day, 'must be in the past')
+    end
+    if birth_day.present? && birth_day.to_date <= Time.now.to_date - 5.years
+      errors.add(:birth_day, 'must be after 5 years ago ')
+    end
+  end 
 end
