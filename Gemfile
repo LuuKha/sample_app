@@ -46,5 +46,8 @@ group :development do
   gem 'spring'
 gem 'bootstrap-sass',       '3.3.6'
 gem 'puma',           '3.1.0'
+gem 'faker',                '1.4.2'
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 end
 

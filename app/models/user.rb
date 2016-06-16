@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
     has_secure_password
-      validates :password, presence: true, length: { minimum: 6 }
+      validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
       validates :birth_day, presence: true
       validate :validates_birthday_compare_now
       validates :phone_number, presence: true, numericality: true, length: { minimum: 10 }
