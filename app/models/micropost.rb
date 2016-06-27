@@ -5,7 +5,7 @@ class Micropost < ActiveRecord::Base
 	validates :user_id, presence: true
 	validates :content, presence: true
 	validate  :picture_size
-	validates :title, presence: true,  , length: { maximum: 50 }
+	validates :title, presence: true,   length: { maximum: 50 }
 	enum category: [ :News, :Sport, :Entertainment, :Weather]
     validates :category, presence: true 
 	private
